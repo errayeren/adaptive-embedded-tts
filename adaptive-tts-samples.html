@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Audio Samples</title>
+</head>
+</title>
+
+<body>
+
+<h2>DNN-BASED SPEAKER-ADAPTIVE POSTFILTERING WITH LIMITED ADAPTATION DATA FOR EMBEDDED TEXT-TO-SPEECH SYNTHESIS SYSTEM</h2>
+
+<b>Authors: Eray Eren, Cenk Demiroglu</b><p>
+
+<b>Abstract:</b>
+End-to-end speech synthesis systems have become popular with the recent introduction of 
+letter-to-spectrogram conversion systems, such as Tacotron, that use encoder-decoder-based 
+architectures. Even though those sequence-to-sequence systems can produce mel-spectrograms 
+from the letters without a text processing frontend, they require substantial amounts of 
+well-massaged, labelled audio data that have high SNR and minimum amounts of artifacts. 
+These data requirements make it difficult to build end-to-end systems from scratch for 
+different languages. Here, we investigate using a traditional deep neural network (DNN) 
+for acoustic modelling together with a postfilter that improves the speech features 
+produced by the network. The proposed architectures were trained with the sometimes noisy, 
+multi-speaker, Wall Street Journal (WSJ) database and tested with unseen speakers. The 
+thin postfilter layer was adapted with minimal data to the target speaker in testing. We 
+investigated several postfilter architectures and compared them with both objective and 
+subjective tests. Fully-connected and transformer-based architectures performed the best 
+in subjective tests. The transformer-based architecture performed the best in objective 
+tests. Moreover, it was faster than the other architectures both in training and 
+inference speeds.<p>
+
+<div>
+<center>
+		<h3>System Overview</h3>
+		<figure>
+		  <img src="overview.png" style="width:40%;">
+		</figure>
+</center>
+</div>
+
+<h3>Test Samples for the Best Performing Speaker Independent Postfilters</h3>
+
+
+
+<table border="1">
+<tr>
+  <td>Model</td>
+	<td>Sp. 1</td><td>Sp. 2</td><td>Sp. 3</td><td>Sp. 4</td><td>Sp. 5</td>
+</tr>
+
+<tr><td>Natural</td>
+
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4a0_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4ah_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4ai_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4aj_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4am_c041c.wav"></audio></td>
+
+
+<tr><td>SI Baseline</td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+</tr>
+
+<tr><td>RNN SI Postfilter</td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_SI/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_SI/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_SI/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_SI/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_SI/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+</tr>
+
+<tr><td>CNN SI Postfilter</td>
+<td><audio controls style="width: 50px;" src="paper_samples/CNN_PF_SI/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/CNN_PF_SI/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/CNN_PF_SI/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/CNN_PF_SI/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/CNN_PF_SI/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+</tr>
+
+<tr><td>T-FNN SI Postfilter</td>
+<td><audio controls style="width: 50px;" src="paper_samples/tfnn_si_wo_cl/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/tfnn_si_wo_cl/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/tfnn_si_wo_cl/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/tfnn_si_wo_cl/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/tfnn_si_wo_cl/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+</tr>
+
+</table>
+
+
+<h3>Test Samples for the Best Performing Speaker Adapted Postfilters</h3>
+
+
+
+<table border="1">
+<tr><td>Model</td> <td colspan="5">5 seconds of adaptation data</td><td colspan="5">10 seconds of adaptation data</td><td colspan="5">15 seconds of adaptation data</td></tr>
+<tr>
+  <td></td>
+	<td>Sp. 1</td><td>Sp. 2</td><td>Sp. 3</td><td>Sp. 4</td><td>Sp. 5</td>
+	<td>Sp. 1</td><td>Sp. 2</td><td>Sp. 3</td><td>Sp. 4</td><td>Sp. 5</td>
+	<td>Sp. 1</td><td>Sp. 2</td><td>Sp. 3</td><td>Sp. 4</td><td>Sp. 5</td>
+</tr>
+
+<tr><td>Natural</td>
+
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4a0_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4ah_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4ai_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4aj_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4am_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4a0_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4ah_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4ai_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4aj_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4am_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4a0_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4ah_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4ai_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4aj_c041c.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/ref/WSJ1_4am_c041c.wav"></audio></td>
+
+
+<tr><td>SI Baseline(no adaptation)</td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+</tr>
+
+
+<tr><td>RNN+CI+ADV Postfilter</td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_1/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_1/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_1/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_1/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_1/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_2/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_2/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_2/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_2/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_2/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_3/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_3/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_3/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_3/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/RNN_PF_GAN_adapt_3/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+</tr>
+
+
+<tr><td>FC+CI+ADV Postfilter</td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+</tr>
+
+<tr><td>FC+CI+ADV+Interpolation Postfilter</td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+</tr>
+
+<tr><td>T-FNN+CI+ADV Postfilter</td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+</tr>
+
+<tr><td>T-FNN+CI+ADV+Interpolation Postfilter</td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4a0_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ah_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4ai_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4aj_c041c_lpc_out.wav"></audio></td>
+<td><audio controls style="width: 50px;" src="paper_samples/SI_base/WSJ1_4am_c041c_lpc_out.wav"></audio></td>
+</tr>
+
+</table>
+
+</body>
+
+</html>
