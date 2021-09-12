@@ -7,27 +7,23 @@
 
 <body>
 
-<h2>DNN-BASED SPEAKER-ADAPTIVE POSTFILTERING WITH LIMITED ADAPTATION DATA FOR EMBEDDED TEXT-TO-SPEECH SYNTHESIS SYSTEM</h2>
+<h2>Deep Learning-based Speaker-Adaptive Postfiltering with Limited Adaptation Data for Embedded Text-to-Speech Synthesis Systems</h2>
 
 <b>Authors: Eray Eren, Cenk Demiroglu</b><p>
 
 <b>Abstract:</b>
-End-to-end speech synthesis systems have become popular with the recent introduction of 
-letter-to-spectrogram conversion systems, such as Tacotron, that use encoder-decoder-based 
-architectures. Even though those sequence-to-sequence systems can produce mel-spectrograms 
-from the letters without a text processing frontend, they require substantial amounts of 
-well-massaged, labelled audio data that have high SNR and minimum amounts of artifacts. 
-These data requirements make it difficult to build end-to-end systems from scratch for 
-different languages. Here, we investigate using a traditional deep neural network (DNN) 
-for acoustic modelling together with a postfilter that improves the speech features 
-produced by the network. The proposed architectures were trained with the sometimes noisy, 
-multi-speaker, Wall Street Journal (WSJ) database and tested with unseen speakers. The 
-thin postfilter layer was adapted with minimal data to the target speaker in testing. We 
-investigated several postfilter architectures and compared them with both objective and 
-subjective tests. Fully-connected and transformer-based architectures performed the best 
-in subjective tests. The transformer-based architecture performed the best in objective 
-tests. Moreover, it was faster than the other architectures both in training and 
-inference speeds.<p>
+End-to-end (e2e) speech synthesis systems have become popular with the recent introduction of letter-to-spectrogram conversion 
+systems, such as Tacotron, that use encoder-decoder-based neural architectures. Even though those sequence-to-sequence systems 
+can produce mel-spectrograms from the letters without a text processing frontend, they require substantial amounts of 
+well-massaged, labelled audio data that have high SNR and minimum amounts of artifacts. These data requirements make it 
+difficult to build end-to-end systems from scratch especially for low-resource languages. Moreover, most of the e2e systems 
+are not designed for devices with tiny memory and cpu resources. Here, we investigate using a traditional deep neural network 
+(DNN) for acoustic modelling together with a postfilter that improves the speech features produced by the network. The proposed 
+architectures were trained with the relatively noisy, multi-speaker, Wall Street Journal (WSJ) database and tested with unseen 
+speakers. The thin postfilter layer was adapted with minimal data to the target speaker for testing. We investigated several 
+postfilter architectures and compared them with both objective and subjective tests. Fully-connected and transformer-based 
+architectures performed the best in subjective tests. The transformer-based architecture performed the best in objective tests. 
+Moreover, it was faster than the other architectures both in training and inference speeds.<p>
 
 <div>
 <center>
